@@ -1,6 +1,6 @@
 /* PSEUDO CODE
 GOAL: TO TAKE A CODE QUIZ
-WHEN I CLICK
+WHEN I CLICK THE START BUTTON
 * A TIME STARTS (SETiNTERVAL/COUNT 1000MS)
 * I AM PRESENTED WITH A QUESTION
 WHEN I ANSWER A QUESTION
@@ -17,12 +17,10 @@ var buttonEl = document.querySelector(".btn");
 console.log(buttonEl);
 
 
-buttonEl.addEventListener("click", function() {
-    alert("button clicked");
-  });
 
 
-// to make the items on pge disappear and reappear
+
+// to make the items on page disappear and reappear
 
 var count = 0;
 //  Select increment and decrement button elements
@@ -82,7 +80,7 @@ function displayMessage() {
       mainEl.textContent = words[wordCount];
       wordCount++;
     }
-}
+
 
 countdown();
 
@@ -194,3 +192,7 @@ signUpButton.addEventListener("click", function(event) {
   localStorage.setItem("user", JSON.stringify(user));
   
 });
+
+buttonEl.addEventListener("click", function() {
+  alert("button clicked");
+})

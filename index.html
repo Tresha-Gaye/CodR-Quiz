@@ -6,15 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz!</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <a href="./highscores.html" id="view-score">View Highscore</a>
     </header>
     <main class="page-content">
-        <section class="question-box">
+        <section class="start-intro ">
+            <div class="container d-flex align-items-center justify-content-center">
+                <h1 id="welcome">Welcome to your Coding Quiz!</h1>
+                <h2 id="instruction">Instructions</h2>
+                <p>
+                    <ul>
+                        <li>This is a timed quiz to test your web development knowledge</li>
+                        <li>The time on the top right will count down as you go through each question</li>
+                        <li>Each incorrect answer will have 10 seconds deducted as a penalty</li>
+                        <li>The reward for a correct answer is normal 1 second countdown</li>
+                        <li>Be sure to save your high score! Have fun!</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="container">
+                <p>
+                    <button class="btn" id="question-answer1">Click Here To Start</button>
+                </p>
+            </div>
+
+        </section>
+        <section class="question-box ">
             <h1 class="question-ask">This is a question</h1>
-            <p class= "answer-list">
+            <p class= "answer-list btn-group tn-group-vertical" role="group" aria-label="Basic example">
                 <button class="btn" id="question-answer1">This is answer #1</button>
                 <button class="btn" id="question-answer2">This is answer #2</button>   
                 <button class="btn" id="question-answer3">This is answer #2</button>    

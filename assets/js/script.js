@@ -71,18 +71,25 @@ var questionList = [
     correctAnswer: "b-CSS can control the layout of multiple web pages all at once"
   },
   { question: "JavaScript can hide HTML elemtents.",
-  answer: {
+    answer: {
     a: "True",
     b: "False"
     },
     correctAnswer: "a-Hiding elements can be done by changing the 'display' style"
   },
-  { question: "When JQuery hides an element, the content becomes transparent and leaves and em,pty space on the page.",
+  { question: "When JQuery hides an element, the content becomes transparent and leaves an empty space on the page.",
     answer: {
     a: "True",
     b: "False"
     },
-    correctAnswer: "b-The content will not disappear, it simply has zero width and height"
+    correctAnswer: "b-The content still exists, but has zero width and height"
+  },
+  { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being use.",
+    answer: {
+    a: "True",
+    b: "False"
+    },
+    correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
   },
 ]
 // var countdownClock = function() {

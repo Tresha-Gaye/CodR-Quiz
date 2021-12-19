@@ -45,23 +45,8 @@ startEl.addEventListener("click", function() {
 }, false);
 
 
-// set question
+// set questions
 
-var generateQuestions = function (questions, quizContainer, resultsContainer, submitButton) {
-var showQuestions = function (questions, quizContainer) {
-var showResults = function (questions, quizContainer, resultsContainer) {
-
-  }
-
-
-var showQuestions = function (questions, quizContainer) {
-
-  }
-
-  submitButton.addEventListener("click", function () {
-    showResults(questions,quizContainer, resultsContainer);
-  });
-}
 var questionList = [
   { question: "HTML is the coding language that is used to create web pages that a web brower can display",
     answer: {
@@ -99,95 +84,15 @@ var questionList = [
     correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
   },
 ]
-// var countdownClock = function() {
-  // var timeLeft = 60;
-  // var countdownTimer = setInterval(function() {
-  //   timeLeft--;
-  //     // document.querySelector("#quiz-timer").innerHTML = ("00:"+sec);
-  //     // sec--;
-  //     if (timeLeft <= 0) {
-  //       clearInterval(countdownTimer);
-  //       document.querySelector("#quiz-timer").innerHTML("Time's Up!");
-  //     }
-  //     document.querySelector("#quiz-timer") = 60 - timeLeft;
-  //     timeLeft -= 1;
-  //     }, 1000);
-    
 
+// var questions = questionList[i]
+// var questionsLength = questions.length
 
-//countdownClock ();
-
-// var buttonEl = document.querySelector(".btn");
-// console.log(buttonEl);
-
-
-
-
-
-// // to make the items on page disappear and reappear
-
-// var count = 0;
-// //  Select answer button elements
-// var answerEl = document.querySelector(".answer-btn");
-// var countEl = document.createElement("#count");
-
-// // Updates count on page
-// function setCounterText() {
-//   countEl.textContent = count;
-// }
-// // Attach event listener to answer button element
-// answerEl.addEventListener("click", function() {
-//   count++;
-//   setCounterText();
-// });
-
-// // Attach event listener to decrement button element
-// decrementEl.addEventListener("click", function() {
-//   // Action will fire if count is greater than  0
-//   if (count > 0) {
-//     count--;
-//     setCounterText();
-//   }
-// });
-
-
-
-//   // to set the timer
-
-//   var timerEl = document.getElementById('countdown');
-// var mainEl = document.getElementById('main');
-
-// var message =
-//   'Some say the world will end in 🔥, Some say in ice. From what I’ve tasted of desire, I hold with those who favor fire. But if it had to perish twice, I think I know enough of hate. To say that for destruction ice, Is also great, And would suffice.';
-// var words = message.split(' ');
-
-// function countdown() {
-//   var timeLeft = 5;
-
-//   // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-//   var timeInterval = setInterval(function() {});
-// }
-
-// // Displays the message one word at a time
-// function displayMessage() {
-//   var wordCount = 0;
-
-//   // Uses the `setInterval()` method to call a function to be executed every 1000 milliseconds
-//   var msgInterval = setInterval(function() {
-//     // If there are no more words left in the message
-//     if (words[wordCount] === undefined) {
-//       // Use `clearInterval()` to stop the timer
-//       clearInterval(msgInterval);
-//     } else {
-//       // Display one word of the message
-//       mainEl.textContent = words[wordCount];
-//       wordCount++;
-//     }
-
-
-// countdown();
-
-// // to set up the quiz and buttons
+for (var i = 0; i < questionsLength; i++) {
+  console.log(i);
+}
+// var randomquestion = (Math.floor(Math.random() * questionList.length));
+//     console.log(randomquestionsIndex);
 
 // var body = document.body;
 // var h1El = document.createElement("h1");
@@ -215,26 +120,15 @@ var questionList = [
 // li4.textContent = "Cupcakes 🧁 ";
 
 // body.appendChild(h1El);
-// body.appendChild(infoEl);
-// infoEl.appendChild(imgEl);
-// infoEl.appendChild(kittenEl);
-// infoEl.appendChild(nameEl);
 // body.appendChild(favoriteEl);
 // favoriteEl.appendChild(listEl);
 // // Append ordered list 
 // favoriteEl.appendChild(listEl);
 // // Append list items to ordered list element 
 // listEl.appendChild(li1);
-// listEl.appendChild(li2);
-// listEl.appendChild(li3);
-// listEl.appendChild(li4);
 
-// h1El.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-// infoEl.setAttribute("style", "margin:auto; width:50%; text-align:center;");
-// imgEl.setAttribute("src", "http://placekitten.com/200/300");
-// nameEl.setAttribute("style", "font-size:25px; text-align:center;");
-// kittenEl.setAttribute("style", "font-size:25px; text-align:center;");
-// favoriteEl.setAttribute("style", "font-size:20px;");
+
+
 // // Add styling to list element
 // listEl.setAttribute("style", "background:#333333; padding:20px;");
 // // Add styling to list items
@@ -252,9 +146,6 @@ var questionList = [
 
 // var firstNameInput = document.querySelector("#first-name");
 // var lastNameInput = document.querySelector("#last-name");
-// var emailInput = document.querySelector("#email");
-// var passwordInput = document.querySelector("#password");
-// var signUpButton = document.querySelector("#sign-up");
 
 // signUpButton.addEventListener("click", function(event) {
 //   event.preventDefault();

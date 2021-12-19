@@ -30,14 +30,17 @@
                         The timer above will count down as you go through each question.
                         Each incorrect answer will have 10 seconds deducted as a penalty.</br>
                         Be sure to save your high score! Have fun!</p>
-                  <button type="button" class="btn btn-primary">Click to Start</button>
+                  <button type="button" class="btn btn-primary" id="start-btn">Click to Start</button>
                 </div>
             </div>
         </section>
-        <section class="row question-box">
-            <div class="btn-group-vertical" id="quizQuestions">
-                <button type="button" class="btn btn-secondary">question-1</button>
-                <button type="button" class="btn btn-secondary">question-2</button>
+        <section class="col">
+            <div class="btn-group-vertical question-container">
+                <button type="button" class="btn btn-secondary question-box" id="questions-1" data-number="1" data-state="hidden">question-1</button>
+                <button type="button" class="btn btn-secondary question-box" id="questions-2" data-number="2" data-state="hidden">question-2</button>
+                <button type="button" class="btn btn-secondary question-box" id="questions-3" data-number="3" data-state="hidden">question-3</button>
+                <button type="button" class="btn btn-secondary question-box" id="questions-4" data-number="4" data-state="hidden">question-4</button>
+                <button type="button" class="btn btn-secondary question-box" id="questions-5" data-number="5" data-state="hidden">question-5</button>
             </div>
             <div id="quiz-answers">Get results</div> 
             <h1 class="question-ask">This is a question</h1>

@@ -14,7 +14,7 @@ WHEN THE GAME IS OVER
 * THEN I CAN SAVE MY INITIALS AND SCORE (LOCAL STORAGE- SET ITEM, GET ITEM)*/
 
 // function to start the quiz & set timer 
-var startEl = document.querySelector(".start-btn");
+var startEl = document.querySelector("#start-btn");
 
 var startQuiz = function () {
   countdownTimer();
@@ -38,95 +38,67 @@ startEl.addEventListener("click", countdownTimer());
   
 
   // to hide/show each questions set up the data attributes for the questions
-
-var questionContainer = document.querySelector(".question-container");
-
-// questionContainer.addEventListener("click", function(event) {
-//   var element = event.target;
-
-//   if (element.matches(".question-box")) {
-//     var state = element.getAttribute("data-state");
-
-//     // Use an if statement to conditionally render the number on the card
-//     if (state === "hidden") {
-//       // If the card is clicked while the state is "hidden", we set .textContent to the number 
-//       element.textContent = element.dataset.number;
-//       // Using the dataset property, we change the state to visible because the user can now see the number
-//       element.dataset.state = "visible";
-   
-//     } else {
-//       // 'Hide' the number by setting .textContent to an empty string
-//       element.textContent= "";
-//       // Use .setAttribute() method
-//       element.setAttribute("data-state", "hidden")
-//     }
-//   }
-// }
      
-var questionContainer = document.querySelector(".question-container");
-questionContainer.addEventListener("click", function() {
+startEl.addEventListener("click", function() {
   document.querySelector("#start-btn").hidden = true;
   document.querySelector("#question-1").hidden = false;
 }, false);
 
 
-  // set questions
+// set question
 
-// var generateQuestions = function (questions, quizContainer, resultsContainer, submitButton) {
+var generateQuestions = function (questions, quizContainer, resultsContainer, submitButton) {
+var showQuestions = function (questions, quizContainer) {
+var showResults = function (questions, quizContainer, resultsContainer) {
 
-//   var showQuestions = function (questions, quizContainer) {
+  }
 
 
-//   var showResults = function (questions, quizContainer, resultsContainer) {
+var showQuestions = function (questions, quizContainer) {
 
+  }
 
-//   }
-
-//   var showQuestions = function (questions, quizContainer) {
-
-//   }
-
-//   submitButton.addEventListener("click", function () {
-//     showResults(questions,quizContainer, resultsContainer);
-//   });
-// }
-// var questionList = [
-//   { question: "HTML is the coding language that is used to create web pages that a web brower can display",
-//     answer: {
-//       a: "True",
-//       b: "False"
-//     },
-//     correctAnswer: "a-True"
-//   },
-//   { question: "CSS, also known as 'Cascading Style Sheets', can only control the layout of one web page at a time",
-//     answer: {
-//       a: "True",
-//       b: "False"
-//     },
-//     correctAnswer: "b-CSS can control the layout of multiple web pages all at once"
-//   },
-//   { question: "JavaScript can hide HTML elemtents.",
-//     answer: {
-//     a: "True",
-//     b: "False"
-//     },
-//     correctAnswer: "a-Hiding elements can be done by changing the 'display' style"
-//   },
-//   { question: "When JQuery hides an element, the content becomes transparent and leaves an empty space on the page.",
-//     answer: {
-//     a: "True",
-//     b: "False"
-//     },
-//     correctAnswer: "b-The content still exists, but has zero width and height"
-//   },
-//   { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being use.",
-//     answer: {
-//     a: "True",
-//     b: "False"
-//     },
-//     correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
-//   },
-// ]
+  submitButton.addEventListener("click", function () {
+    showResults(questions,quizContainer, resultsContainer);
+  });
+}
+var questionList = [
+  { question: "HTML is the coding language that is used to create web pages that a web brower can display",
+    answer: {
+      a: "True",
+      b: "False"
+    },
+    correctAnswer: "a-True"
+  },
+  { question: "CSS, also known as 'Cascading Style Sheets', can only control the layout of one web page at a time",
+    answer: {
+      a: "True",
+      b: "False"
+    },
+    correctAnswer: "b-CSS can control the layout of multiple web pages all at once"
+  },
+  { question: "JavaScript can hide HTML elemtents.",
+    answer: {
+    a: "True",
+    b: "False"
+    },
+    correctAnswer: "a-Hiding elements can be done by changing the 'display' style"
+  },
+  { question: "When JQuery hides an element, the content becomes transparent and leaves an empty space on the page.",
+    answer: {
+    a: "True",
+    b: "False"
+    },
+    correctAnswer: "b-The content still exists, but has zero width and height"
+  },
+  { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being use.",
+    answer: {
+    a: "True",
+    b: "False"
+    },
+    correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
+  },
+]
 // var countdownClock = function() {
   // var timeLeft = 60;
   // var countdownTimer = setInterval(function() {

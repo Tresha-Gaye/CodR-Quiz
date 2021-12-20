@@ -48,7 +48,6 @@ startEl.addEventListener("click", startQuiz);
 
 
 // set questions
-
 var questionList = [
   { question: "HTML is the coding language that is used to create web pages that a web brower can display",
     answer: {
@@ -58,28 +57,28 @@ var questionList = [
     correctAnswer: "a-True"
   },
   { question: "CSS, also known as 'Cascading Style Sheets', can only control the layout of one web page at a time",
-    answer: {
+    answers: {
       a: "True",
       b: "False"
     },
     correctAnswer: "b-CSS can control the layout of multiple web pages all at once"
   },
   { question: "JavaScript can hide HTML elemtents.",
-    answer: {
+    answers: {
     a: "True",
     b: "False"
     },
     correctAnswer: "a-Hiding elements can be done by changing the 'display' style"
   },
   { question: "When JQuery hides an element, the content becomes transparent and leaves an empty space on the page.",
-    answer: {
+    answers: {
     a: "True",
     b: "False"
     },
     correctAnswer: "b-The content still exists, but has zero width and height"
   },
   { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being use.",
-    answer: {
+    answers: {
     a: "True",
     b: "False"
     },
@@ -90,8 +89,72 @@ var questionList = [
 // var questions = questionListArray
 // var questionListArrayLength = questionListArray.length
 
-// for (var i = 0; i < questionListArrayLength; i++) {
+var questionContainer = document.querySelector(".question-container")
+for (var i = 0; i < questionList.length; i++) {
+  questionContainer.textContent = questionList[i].question;
+  var possibleChoices = questionList[i].question;
+  questionContainer.appendChild(possibleChoices);
+}
 //   console.log(i);
 // }
 // var randomquestion = (Math.floor(Math.random() * questionList.length));
 //     console.log(randomquestionsIndex);
+
+
+
+// store high score in localStorage
+
+// example
+
+// var firstNameInput = document.querySelector("#first-name");
+// var lastNameInput = document.querySelector("#last-name");
+// var emailInput = document.querySelector("#email");
+// var passwordInput = document.querySelector("#password");
+// var signUpButton = document.querySelector("#sign-up");
+
+// signUpButton.addEventListener("click", function(event) {
+//   event.preventDefault();
+  
+//   // create user object from submission
+//   var user = {
+//     firstName: firstNameInput.value.trim(),
+//     lastName: lastNameInput.value.trim(),
+//     email: emailInput.value.trim(),
+//     password: passwordInput.value.trim()
+//   };
+
+//   // set new submission to local storage 
+//   localStorage.setItem("user", JSON.stringify(user));
+  
+// });
+
+var highScore = {
+  userInits: userInitInput.value.trim(),
+  userScore: userScoreInput.value.trim()
+};
+
+ // set new submission to local storage 
+ localStorage.setItem("highScore", JSON.stringify(highScore));
+
+//  get item 
+
+// example
+
+//  var loadTasks = function() {
+//   var savedTasks = localStorage.getItem("tasks");
+//   // if there are no tasks, set tasks to an empty array and return out of the function
+//   if (!savedTasks) {
+//     return false;
+//   }
+//   console.log("Saved tasks found!");
+//   // else, load up saved tasks
+
+//   // parse into array of objects
+//   savedTasks = JSON.parse(savedTasks);
+
+//   // loop through savedTasks array
+//   for (var i = 0; i < savedTasks.length; i++) {
+//     // pass each task object into the `createTaskEl()` function
+//     createTaskEl(savedTasks[i]);
+//   }
+// };

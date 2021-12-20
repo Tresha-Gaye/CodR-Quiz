@@ -12,7 +12,7 @@ View the deployed application by [clicking this link](https://tresha-gaye.github
 
 Below is a screenshot of the app as of today:
 
-![CodRQuiz v0.1](./assets/images/xreenshot.jpg)
+[CodRQuiz v0.1](./assets/images/xcreenshot.jpg)
 
 ## Challenges
 I was unable to meet all requirements within the timeframe given, but will continue to improve the application adn update this README accorrdingly, until the app operates as requested.

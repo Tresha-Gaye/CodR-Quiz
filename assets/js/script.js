@@ -14,6 +14,9 @@ WHEN THE GAME IS OVER
 * THEN I CAN SAVE MY INITIALS AND SCORE (LOCAL STORAGE- SET ITEM, GET ITEM)*/
 
 // function to start the quiz & set timer 
+var index = 0;
+
+
 var startEl = document.getElementById("start-btn");
 
 var startQuiz = function () {
@@ -32,8 +35,21 @@ var startQuiz = function () {
       }
     }, 1000);
   
-    // return "Press start to play again"
+    var welcomeField = document.getElementById("welcome").style.display = "none";
+    var btnField = document.getElementById("start-btn").style.display = "none";
+    var nextField = document.getElementById("answer-btn").style.display = "block";
 
+    if (index < questionList.length) {
+        var possibleChoices = questionList[index].question;
+        // return "Press start to play again"
+        var fieldName = document.getElementById("question-box");
+        fieldName.innerHTML = possibleChoices;
+        index++;
+    }
+    else {
+        var fieldName = document.getElementById("question-box");
+        fieldName.innerHTML = "Time is Up";
+    }
 
 }; 
 startEl.addEventListener("click", startQuiz);
@@ -41,7 +57,7 @@ startEl.addEventListener("click", startQuiz);
 
   // to hide/show each questions set up the data attributes for the questions
      
-// // startEl.addEventListener("click", function() {
+// startEl.addEventListener("click", function() {
 //   document.querySelector("#start-btn").hidden = true;
 //   document.querySelector("#question-1").hidden = false;
 // }, false);
@@ -89,13 +105,17 @@ var questionList = [
 // var questions = questionListArray
 // var questionListArrayLength = questionListArray.length
 
-var questionContainer = document.querySelector(".question-container")
-for (var i = 0; i < questionList.length; i++) {
-  questionContainer.textContent = questionList[i].question;
-  var possibleChoices = questionList[i].question;
-  questionContainer.appendChild(possibleChoices);
-}
-//   console.log(i);
+// var questionContainer = document.querySelector(".question-container");
+// // for (var i = 0; i < questionList.length; i++) {
+//   for (var i = 0; i < 1; i++) {
+//   questionContainer.textContent = questionList[i].question;
+//   var possibleChoices = questionList[i].question;
+//   // questionContainer.appendChild(possibleChoices);\
+//   // questionContainer.innerHTML = possibleChoices;
+//   // var fieldName = document.getElementById("question-box");
+//   // fieldName.innerHTML = questionContainer.textContent;
+// };
+// //   console.log(i);
 // }
 // var randomquestion = (Math.floor(Math.random() * questionList.length));
 //     console.log(randomquestionsIndex);
@@ -128,15 +148,15 @@ for (var i = 0; i < questionList.length; i++) {
   
 // });
 
-var highScore = {
-  userInits: userInitInput.value.trim(),
-  userScore: userScoreInput.value.trim()
-};
+// var highScore = {
+//   userInits: userInitInput.value.trim(),
+//   userScore: userScoreInput.value.trim()
+// };
 
- // set new submission to local storage 
- localStorage.setItem("highScore", JSON.stringify(highScore));
+//  // set new submission to local storage 
+//  localStorage.setItem("highScore", JSON.stringify(highScore));
 
-//  get item 
+// //  get item 
 
 // example
 

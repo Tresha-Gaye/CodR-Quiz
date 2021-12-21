@@ -13,16 +13,16 @@ WHEN ALL QUESTIONS ARE ANSWERED OR TIME REACHES 0
 WHEN THE GAME IS OVER
 * THEN I CAN SAVE MY INITIALS AND SCORE (LOCAL STORAGE- SET ITEM, GET ITEM)*/
 
-// function to start the quiz & set timer 
+
 var index = 0;
 
-
+// 'click to start' begins quiz, starts timer
 var startEl = document.getElementById("start-btn");
 
 var startQuiz = function () {
-  // countdownTimer();
+  
 
-
+  // countdown timer function
   var timeLeft = 60;
   var countdownTimer = setInterval(function() {
   console.log("starting");
@@ -31,17 +31,19 @@ var startQuiz = function () {
       if (timeLeft <= 0) {
         clearInterval(countdownTimer);
         window.alert("Time is up! Be sure to save your score.");
-        return countdownTimer
+        return countdownTimer // restarts timer after it reaches zero, by pressing 'start' again
       }
     }, 1000);
   
+    // this transition from welcome screen to each question
     var welcomeField = document.getElementById("welcome").style.display = "none";
     var btnField = document.getElementById("start-btn").style.display = "none";
     var nextField = document.getElementById("answer-btn").style.display = "block";
 
+    // iterates through questions until last question then stops
     if (index < questionList.length) {
         var possibleChoices = questionList[index].question;
-        // return "Press start to play again"
+        
         var fieldName = document.getElementById("question-box");
         fieldName.innerHTML = possibleChoices;
         index++;
@@ -54,16 +56,7 @@ var startQuiz = function () {
 }; 
 startEl.addEventListener("click", startQuiz);
   
-
-  // to hide/show each questions set up the data attributes for the questions
-     
-// startEl.addEventListener("click", function() {
-//   document.querySelector("#start-btn").hidden = true;
-//   document.querySelector("#question-1").hidden = false;
-// }, false);
-
-
-// set questions
+// set questions in an array
 var questionList = [
   { question: "HTML is the coding language that is used to create web pages that a web brower can display",
     answer: {
@@ -101,6 +94,10 @@ var questionList = [
     correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
   },
 ]
+
+
+// is a for loop needed? think about it
+
 
 // var questions = questionListArray
 // var questionListArrayLength = questionListArray.length

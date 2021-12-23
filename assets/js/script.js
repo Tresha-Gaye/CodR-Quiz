@@ -19,13 +19,58 @@ var index = 0;
 // 'click to start' begins quiz, starts timer
 var startEl = document.getElementById("start-btn");
 
-var startQuiz = function () {
-  
+var nextQuestion = function() {
+  index++;
+  displayQuestions();
+  // console.log("click");
+}
 
+var displayAnswerTrue = function() {
+  var answer = true;
+  var ans = questionList[index].shortAnswer;
+  var longAnswer = questionList[index].correctAnswer;
+  if (answer === ans) {
+    document.getElementById("show-answer").innerHTML = "<br/>Your answer is correct!<br/>" + longAnswer;
+  } else {
+    document.getElementById("show-answer").innerHTML = "<br/>Your answer is incorrect!<br/>" + longAnswer;
+  }
+  nextQuestion();
+}
+
+var displayAnswerFalse = function() {
+  var answer = false;
+  var ans = questionList[index].shortAnswer;
+  var longAnswer = questionList[index].correctAnswer;
+  if (answer === ans) {
+    document.getElementById("show-answer").innerHTML = "<br/>Your answer is correct!<br/>" + longAnswer;
+  } else {
+    document.getElementById("show-answer").innerHTML = "<br/>Your answer is incorrect!<br/>" + longAnswer;
+  }
+  nextQuestion();
+}
+
+var displayQuestions = function () {
+  if (index < questionList.length) {
+  var possibleChoices = questionList[index].question;
+  
+  var fieldName = document.getElementById("question-box");
+  fieldName.innerHTML = possibleChoices;
+  console.log(fieldName);
+  // index++;
+}
+else {
+  var fieldName = document.getElementById("question-box");
+  fieldName.innerHTML = "Time is Up";
+}
+};
+
+var startQuiz = function () {
+   
+  document.getElementById("show-answer").innerHTML = "";
   // countdown timer function
   var timeLeft = 60;
   var countdownTimer = setInterval(function() {
-  console.log("starting");
+  // console.log("starting");
     timeLeft--;
     document.querySelector("#quiz-max-time").textContent = timeLeft + " seconds";
       if (timeLeft <= 0) {
@@ -38,60 +83,75 @@ var startQuiz = function () {
     // this transition from welcome screen to each question
     var welcomeField = document.getElementById("welcome").style.display = "none";
     var btnField = document.getElementById("start-btn").style.display = "none";
-    var nextField = document.getElementById("answer-btn").style.display = "block";
+    var nextField = document.getElementById("answer-btns").style.display = "block";
+    var trueButton = document.getElementById("answertrue-btn");
+    var falseButton = document.getElementById("answerfalse-btn");
+
+    trueButton.addEventListener("click", displayAnswerTrue); 
+    falseButton.addEventListener("click", displayAnswerFalse);
+    displayQuestions();
+    console.log("click");
+
+    // var nextField = document.getElementById("answertrue-btn").style.display = "block";
 
     // iterates through questions until last question then stops
-    if (index < questionList.length) {
-        var possibleChoices = questionList[index].question;
-        
-        var fieldName = document.getElementById("question-box");
-        fieldName.innerHTML = possibleChoices;
-        index++;
-    }
-    else {
-        var fieldName = document.getElementById("question-box");
-        fieldName.innerHTML = "Time is Up";
-    }
 
 }; 
 startEl.addEventListener("click", startQuiz);
-  
+
+
+
+
+// next steps
+// do a 'this' - before going to next question, do an if statement- cosole.log 'this' to see what it gives
+// get the value of the element, true or fals
+// compare the value
+
+//if pick correct, then take time off clock, if incorrect then choose
+
+
+
 // set questions in an array
 var questionList = [
   { question: "HTML is the coding language that is used to create web pages that a web brower can display",
-    answer: {
+    answers: {
       a: "True",
       b: "False"
     },
-    correctAnswer: "a-True"
+    correctAnswer: "HTML is the only coding language that can display on a web browser",
+    shortAnswer: true
   },
   { question: "CSS, also known as 'Cascading Style Sheets', can only control the layout of one web page at a time",
     answers: {
       a: "True",
       b: "False"
     },
-    correctAnswer: "b-CSS can control the layout of multiple web pages all at once"
+    correctAnswer: "CSS can control the layout of multiple web pages all at once",
+    shortAnswer: false
   },
   { question: "JavaScript can hide HTML elemtents.",
     answers: {
     a: "True",
     b: "False"
     },
-    correctAnswer: "a-Hiding elements can be done by changing the 'display' style"
+    correctAnswer: "Hiding elements can be done by changing the 'display' style",
+    shortAnswer: true
   },
   { question: "When JQuery hides an element, the content becomes transparent and leaves an empty space on the page.",
     answers: {
     a: "True",
     b: "False"
     },
-    correctAnswer: "b-The content still exists, but has zero width and height"
+    correctAnswer: "The content still exists, but has zero width and height",
+    shortAnswer: false
   },
-  { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being use.",
+  { question: "It is no longer possible to create custom CSS stylesheets if Bootstrap stylesheets are being used.",
     answers: {
     a: "True",
     b: "False"
     },
-    correctAnswer: "b-custom code in an external style sheet can be used to customize Bootstrap"
+    correctAnswer: "Custom code in an external style sheet can be used to customize Bootstrap",
+    shortAnswer: false
   },
 ]
 

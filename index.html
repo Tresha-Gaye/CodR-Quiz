@@ -13,7 +13,7 @@
 
 <body class="bg-dark">
     <header class="d-flex flex-row bd-highlight justify-content-around">
-        <a class="btn btn-primary" href="./highscores.html" role="button" id="view-score">View Highscore</a>
+        <!-- <a class="btn btn-primary" href="./highscores.html" role="button" id="view-score">View Highscore</a> -->
         <div class="d-inline p-2 text-white" id="timer">
             <button type="button" class="btn btn-danger position-relative">
                 Timer: <span class="badge bg-secondary" id="quiz-max-time" text>60 seconds</span>
@@ -42,6 +42,9 @@
                         <button type="button" class="btn btn-primary" id="answerfalse-btn">False</button>
                     </div>
                     <div id="show-answer"></div>
+                    <div class="d-flex justify-content-center">
+                        <br /><button type="button" class="btn btn-success" id="next-q-btn" style="display:none">Next Question</button>
+                    </div>
                 </div>
             </div>
         </section>

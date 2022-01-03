@@ -5,9 +5,8 @@ WHEN I CLICK THE START BUTTON
 * I AM PRESENTED WITH A QUESTION
 WHEN I ANSWER A QUESTION
 * I AM PRESENTED WITH ANOTEHR QUESTION
-WHEN I ANSWER A QUESTION 
 * IF THE ANSWER IS CORRECT THE TIME COUNTS DOWN NORMALLY (~ 1 SEC)
-* IF THE ANSWER IS INCORRECT THEN MORE TIME IS SUBTRACTED FROM TEH CLOCK (> 1 SEC)
+* IF THE ANSWER IS INCORRECT THEN MORE TIME IS SUBTRACTED FROM THE CLOCK (> 1 SEC)
 WHEN ALL QUESTIONS ARE ANSWERED OR TIME REACHES 0
 * THEN THE GAME IS OVER
 WHEN THE GAME IS OVER
@@ -15,13 +14,18 @@ WHEN THE GAME IS OVER
 
 
 var index = 0;
+// var timeLeft = 60;
 
 // 'click to start' begins quiz, starts timer
 var startEl = document.getElementById("start-btn");
 
 var nextQuestion = function() {
+  document.getElementById("show-answer").innerHTML = "";
   index++;
   displayQuestions();
+  document.getElementById("next-q-btn").style.display = "none";
+  document.getElementById("answertrue-btn").style.display = "inline";
+  document.getElementById("answerfalse-btn").style.display = "inline";
   // console.log("click");
 }
 
@@ -33,8 +37,12 @@ var displayAnswerTrue = function() {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is correct!<br/>" + longAnswer;
   } else {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is incorrect!<br/>" + longAnswer;
+    // timeLeft = timeLeft - 10;
   }
-  nextQuestion();
+  // nextQuestion();
+  document.getElementById("answertrue-btn").style.display = "none";
+  document.getElementById("answerfalse-btn").style.display = "none";
+  document.getElementById("next-q-btn").style.display = "block";
 }
 
 var displayAnswerFalse = function() {
@@ -45,8 +53,12 @@ var displayAnswerFalse = function() {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is correct!<br/>" + longAnswer;
   } else {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is incorrect!<br/>" + longAnswer;
+    timeLeft = timeLeft - 10;
   }
-  nextQuestion();
+  // nextQuestion();
+  document.getElementById("answertrue-btn").style.display = "none";
+  document.getElementById("answerfalse-btn").style.display = "none";
+  document.getElementById("next-q-btn").style.display = "block";
 }
 
 var displayQuestions = function () {
@@ -60,10 +72,11 @@ var displayQuestions = function () {
 }
 else {
   var fieldName = document.getElementById("question-box");
-  fieldName.innerHTML = "Time is Up";
+  fieldName.innerHTML = "All done! Save your score!";
 }
 };
 
+// click true/false, hide both, display answers with a next questions button, then user will click next questions button, next questiosn will pop pu with true or false questions will pop
 var startQuiz = function () {
    
   document.getElementById("show-answer").innerHTML = "";
@@ -86,9 +99,15 @@ var startQuiz = function () {
     var nextField = document.getElementById("answer-btns").style.display = "block";
     var trueButton = document.getElementById("answertrue-btn");
     var falseButton = document.getElementById("answerfalse-btn");
+    var nextQuestionButton = document.getElementById("next-q-btn");
 
+    
+    // trueButton.addEventListener("click", displayAnswerTrue); 
+    // falseButton.addEventListener("click", displayAnswerFalse);
     trueButton.addEventListener("click", displayAnswerTrue); 
     falseButton.addEventListener("click", displayAnswerFalse);
+    nextQuestionButton.addEventListener("click", nextQuestion);
+
     displayQuestions();
     console.log("click");
 

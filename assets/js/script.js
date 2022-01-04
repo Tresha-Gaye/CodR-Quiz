@@ -4,7 +4,7 @@ WHEN I CLICK THE START BUTTON
 * A TIME STARTS (SETiNTERVAL/COUNT 1000MS)
 * I AM PRESENTED WITH A QUESTION
 WHEN I ANSWER A QUESTION
-* I AM PRESENTED WITH ANOTEHR QUESTION
+* I AM PRESENTED WITH ANOTHER QUESTION
 * IF THE ANSWER IS CORRECT THE TIME COUNTS DOWN NORMALLY (~ 1 SEC)
 * IF THE ANSWER IS INCORRECT THEN MORE TIME IS SUBTRACTED FROM THE CLOCK (> 1 SEC)
 WHEN ALL QUESTIONS ARE ANSWERED OR TIME REACHES 0
@@ -14,7 +14,8 @@ WHEN THE GAME IS OVER
 
 
 var index = 0;
-// var timeLeft = 60;
+var timeLeft = 60;
+var gameOver = 0;
 
 // 'click to start' begins quiz, starts timer
 var startEl = document.getElementById("start-btn");
@@ -23,10 +24,27 @@ var nextQuestion = function() {
   document.getElementById("show-answer").innerHTML = "";
   index++;
   displayQuestions();
-  document.getElementById("next-q-btn").style.display = "none";
-  document.getElementById("answertrue-btn").style.display = "inline";
-  document.getElementById("answerfalse-btn").style.display = "inline";
+  var numQuestions = questionList.length;
+  if(index != numQuestions) {
+    document.getElementById("next-q-btn").style.display = "none";
+    document.getElementById("answertrue-btn").style.display = "inline";
+    document.getElementById("answerfalse-btn").style.display = "inline";
+  } else {
+    document.getElementById("next-q-btn").style.display = "none";
+    document.getElementById("answertrue-btn").style.display = "none";
+    document.getElementById("answerfalse-btn").style.display = "none";
+    document.getElementById("save-btn").style.display = "inline";
+  }
   // console.log("click");
+}
+
+var saveScore = function() {
+  localStorage.setItem("highScore", JSON.stringify(timeLeft));
+  gameOver = 1;
+  if (timeLeft > 0) {
+    timeLeft = 1;
+    // clearInterval(countdownTimer);  
+  }
 }
 
 var displayAnswerTrue = function() {
@@ -37,7 +55,7 @@ var displayAnswerTrue = function() {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is correct!<br/>" + longAnswer;
   } else {
     document.getElementById("show-answer").innerHTML = "<br/>Your answer is incorrect!<br/>" + longAnswer;
-    // timeLeft = timeLeft - 10;
+    timeLeft = timeLeft - 10;
   }
   // nextQuestion();
   document.getElementById("answertrue-btn").style.display = "none";
@@ -78,17 +96,18 @@ else {
 
 // click true/false, hide both, display answers with a next questions button, then user will click next questions button, next questiosn will pop pu with true or false questions will pop
 var startQuiz = function () {
-   
+  gameOver = 0; 
   document.getElementById("show-answer").innerHTML = "";
   // countdown timer function
-  var timeLeft = 60;
+  timeLeft = 60;
   var countdownTimer = setInterval(function() {
   // console.log("starting");
     timeLeft--;
     document.querySelector("#quiz-max-time").textContent = timeLeft + " seconds";
       if (timeLeft <= 0) {
         clearInterval(countdownTimer);
-        window.alert("Time is up! Be sure to save your score.");
+        if(gameOver == 0)
+          window.alert("Time is up! Be sure to save your score.");
         return countdownTimer // restarts timer after it reaches zero, by pressing 'start' again
       }
     }, 1000);
@@ -100,6 +119,7 @@ var startQuiz = function () {
     var trueButton = document.getElementById("answertrue-btn");
     var falseButton = document.getElementById("answerfalse-btn");
     var nextQuestionButton = document.getElementById("next-q-btn");
+    var saveButton = document.getElementById("save-btn");
 
     
     // trueButton.addEventListener("click", displayAnswerTrue); 
@@ -107,6 +127,7 @@ var startQuiz = function () {
     trueButton.addEventListener("click", displayAnswerTrue); 
     falseButton.addEventListener("click", displayAnswerFalse);
     nextQuestionButton.addEventListener("click", nextQuestion);
+    saveButton.addEventListener("click", saveScore);
 
     displayQuestions();
     console.log("click");

@@ -139,8 +139,11 @@ var startQuiz = function () {
 }; 
 startEl.addEventListener("click", startQuiz);
 
-
-
+// next steps
+// at end of quiz, create an end of quiz function, retreive high score from local storage0 
+// consider not displying timer at end of quiz
+//  append high score into a div/para/any container in html
+// hide last questions & display an alert that say they're done with quiz
 
 // next steps
 // do a 'this' - before going to next question, do an if statement- cosole.log 'this' to see what it gives

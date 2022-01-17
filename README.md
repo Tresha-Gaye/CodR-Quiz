@@ -6,16 +6,23 @@ View the deployed application by [clicking this link](https://tresha-gaye.github
 
 **Criteria and Accomplishment**
 
-- the app is required to run in the browser and feature dynamically generated HTML and CSS powered by JavaScript. 
-- the app should feature a polished user interface and be responsive, adapting to multip screen sizes.
-- important features of the app should include: a countdown timer that is responsive to correct and incorrect answers; the ability for the user to save their high score.
+- the app runs in the browser and feature dynamically generated HTML and CSS powered by JavaScript. 
+- the app features a polished user interface and be responsive, adapting to multip screen sizes.
+- features include: a countdown timer that is responsive to correct and incorrect answers; the ability for the user to save their high score.
 
-Below is a screenshot of the app as of today:
+The app has been substantially improved so that the questions now populate, accepts user responses, moves on to the next questions, deducts more time for incorrect answers, and saves and displays high score. 
 
-![CodRQuiz v0.1](./assets/images/xcreenshot.jpg)
+Additional functionality will be included in version 3 to: add more than one high score at a time, allow user to include name/initials when saving high score. 
+
+Below are screenshots of the app as of today:
+
+![CodRQuiz v2.0](./assets/images/version2-home.jpg)
+
+![CodRQuiz run](.assets/images/version2-go.jpg)
 
 ## Challenges
-I was unable to meet all requirements within the timeframe given, but will continue to improve the application adn update this README accorrdingly, until the app operates as requested.
+
+The app now meets the majority of user requirements, will continue to be updated.
 
 
 ## Contributing

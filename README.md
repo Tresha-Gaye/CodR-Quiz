@@ -1,4 +1,4 @@
-# CodR-Quiz
+# CodR-Quiz version 2.0
 
 This application uses JavaScript and Web API to create a timed, multiole choice coding assessmwent.
 
@@ -18,7 +18,7 @@ Below are screenshots of the app as of today:
 
 ![CodRQuiz v2.0](./assets/images/version2-home.jpg)
 
-![CodRQuiz run](.assets/images/version2-go.jpg)
+![CodRQuiz run](./assets/images/version2-go.jpg)
 
 ## Challenges
 

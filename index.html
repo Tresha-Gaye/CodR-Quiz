@@ -23,13 +23,13 @@
     
     <!-- this is the box that has the intro and then each question -->
     <main class="container min-vh-100 d-flex align-items-center">
-        <section class="start-intro w-100 row justify-content-center">
+        <section id="quiz-box" class="start-intro w-100 row justify-content-center">
             <div class="card text-center">
-                <div class="card-header">
+                <div id="knowledge-check-id" class="card-header">
                     Knowledge Check
                 </div>
                 <div class="card-body">
-                    <h1 class="card-title" id="welcome" name="welcome">Welcome to your Coding Quiz!</h1>
+                    <h1 id="welcome-id" class="card-title" name="welcome">Welcome to your Coding Quiz!</h1>
                     <p id="question-box" name="question-box" class="card-text">This is a timed quiz to test your web
                         development knowledge.
                         The timer above will count down as you go through each question.
@@ -76,20 +76,7 @@
         <br />
         <br />
     
-    <div class="d-flex">       
-        <div id="score-box" >
-            <div >
-                <div class="card text-center">
-                    <div class="card-header">
-                        High Scores
-                    </div>
-                    <div class="card-body" id="user-name">
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </main>
 
     <footer>

@@ -17,6 +17,7 @@ var index = 0;
 var timeLeft = 60;
 var gameOver = 0;
 
+
 // 'click to start' begins quiz, starts timer
 var startEl = document.getElementById("start-btn");
 
@@ -39,12 +40,30 @@ var nextQuestion = function() {
 }
 
 var saveScore = function() {
+  // var displayScore = localStorage.getItem("highScore");
+  // var totalScore = 0;
+  // console.log(displayScore);
+  // if(displayScore != NaN) {
+  // totalScore = Number(displayScore) + timeLeft;
+  // console.log("if", totalScore);
+  // } else {
+  //   totalScore = timeLeft;
+  //   console.log("else", totalScore);
+  // }
+  //   console.log("totalScore= ", totalScore);
   localStorage.setItem("highScore", JSON.stringify(timeLeft));
   gameOver = 1;
   if (timeLeft > 0) {
     timeLeft = 1;
     // clearInterval(countdownTimer);  
   }
+  displayScore = localStorage.getItem("highScore");
+  console.log(displayScore);
+  document.getElementById("knowledge-check-id").textContent = "High Score";
+  document.getElementById("welcome-id").textContent = "";
+  document.getElementById("question-box").textContent = displayScore;
+  document.getElementById("save-btn").style.display = "none";
+  document.getElementById("start-btn").style.display = "block";
 }
 
 var displayAnswerTrue = function() {
@@ -113,7 +132,7 @@ var startQuiz = function () {
     }, 1000);
   
     // this transition from welcome screen to each question
-    var welcomeField = document.getElementById("welcome").style.display = "none";
+    var welcomeField = document.getElementById("welcome-id").style.display = "none";
     var btnField = document.getElementById("start-btn").style.display = "none";
     var nextField = document.getElementById("answer-btns").style.display = "block";
     var trueButton = document.getElementById("answertrue-btn");

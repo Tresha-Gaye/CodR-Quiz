@@ -35,6 +35,8 @@ var nextQuestion = function() {
     document.getElementById("answertrue-btn").style.display = "none";
     document.getElementById("answerfalse-btn").style.display = "none";
     document.getElementById("save-btn").style.display = "inline";
+    document.getElementById("username").style.display = "block";
+    // document.getElementById("user-label").style.display= "block";
   }
   // console.log("click");
 }
@@ -51,20 +53,30 @@ var saveScore = function() {
   //   console.log("else", totalScore);
   // }
   //   console.log("totalScore= ", totalScore);
-  localStorage.setItem("highScore", JSON.stringify(timeLeft));
-  gameOver = 1;
-  if (timeLeft > 0) {
-    timeLeft = 1;
-    // clearInterval(countdownTimer);  
+  
+    var userName = document.getElementById("username").value;
+    localStorage.setItem(userName, JSON.stringify(timeLeft));
+    displayScore = localStorage.getItem(userName);
+    // for(var i = 0; i < displayScore.length; i++) {
+    // gameOver = 1;
+    // if (timeLeft > 0) {
+    //   timeLeft = 1;
+    //   // clearInterval(countdownTimer);  
+    // }
+    
+    // console.log(displayScore);
+    document.getElementById("knowledge-check-id").textContent = "High Score";
+    document.getElementById("welcome-id").textContent = "";
+    document.getElementById("question-box").textContent = userName + " score is " + displayScore;
+    document.getElementById("save-btn").style.display = "none";
+    document.getElementById("username").style.display = "none";
   }
-  displayScore = localStorage.getItem("highScore");
-  console.log(displayScore);
-  document.getElementById("knowledge-check-id").textContent = "High Score";
-  document.getElementById("welcome-id").textContent = "";
-  document.getElementById("question-box").textContent = displayScore;
-  document.getElementById("save-btn").style.display = "none";
-  document.getElementById("start-btn").style.display = "block";
+    
+
+var playAgain = function () {
+  document.getElementById("replay-btn").style.display = "inline";
 }
+
 
 var displayAnswerTrue = function() {
   var answer = true;
@@ -157,6 +169,12 @@ var startQuiz = function () {
 
 }; 
 startEl.addEventListener("click", startQuiz);
+
+// var highScore = localStorage.getItem("highScore");
+// var highScoreInt = Number(highScore);
+// highScoreInt = highScoreInt + timeLeft;
+// localStorage.setItem("highScore", JSON.stringify(highScoreInt)); 
+// above is to cumulatively build the score
 
 // next steps
 // at end of quiz, create an end of quiz function, retreive high score from local storage0 

@@ -22,6 +22,7 @@ WHEN THE GAME IS OVER
 var index = 0;
 var timeLeft = 60;
 var gameOver = 0;
+let countdownTimer;
 
 
 // 'click to start' begins quiz, starts timer
@@ -42,9 +43,10 @@ var nextQuestion = function() {
     document.getElementById("answerfalse-btn").style.display = "none";
     document.getElementById("save-btn").style.display = "inline";
     document.getElementById("username").style.display = "block";
+
+    clearInterval(countdownTimer);
     // document.getElementById("user-label").style.display= "block";
   }
-  // console.log("click");
 }
 
 var saveScore = function() {
@@ -68,24 +70,41 @@ var saveScore = function() {
 
 
    
-    // for(var i = 0; i < displayScore.length; i++) {
-    // gameOver = 1;
-    // if (timeLeft > 0) {
-    //   timeLeft = 1;
-    //   // clearInterval(countdownTimer);  
-    // }
     
     // console.log(displayScore);
     document.getElementById("knowledge-check-id").textContent = "High Score";
     document.getElementById("welcome-id").textContent = "";
-    document.getElementById("question-box").textContent = userName + " score is " + displayScore;
     document.getElementById("save-btn").style.display = "none";
     document.getElementById("username").style.display = "none";
+
+    for (const {user, score} of displayScore) {
+      // create html element
+      const scoreBox = document.createElement("p");
+      // add textContent to element of user & score
+      scoreBox.textContent = `${user} score is ${score}`
+      // append element to questions-box
+      document.getElementById("question-box").appendChild(scoreBox);
+
+
+      document.getElementById("replay-btn").style.display = "inline";
+
+    };
   }
     
 
 var playAgain = function () {
-  document.getElementById("replay-btn").style.display = "inline";
+ // clear the question-box & populate with intro para 
+ document.getElementById("question-box").innerHTML = "";
+index = 0;
+timeLeft = 60;
+gameOver = 0;
+
+document.getElementById("replay-btn").style.display = "none";
+document.getElementById("answertrue-btn").style.display = "inline";
+document.getElementById("answerfalse-btn").style.display = "inline";
+
+startQuiz();
+
 }
 
 
@@ -132,17 +151,17 @@ var displayQuestions = function () {
 }
 else {
   var fieldName = document.getElementById("question-box");
-  fieldName.innerHTML = "All done! Save your score!";
+  // fieldName.innerHTML = "All done! Save your score!";
 }
 };
 
 // click true/false, hide both, display answers with a next questions button, then user will click next questions button, next questiosn will pop pu with true or false questions will pop
 var startQuiz = function () {
-  gameOver = 0; 
+   gameOver = 0; 
   document.getElementById("show-answer").innerHTML = "";
   // countdown timer function
   timeLeft = 60;
-  var countdownTimer = setInterval(function() {
+  countdownTimer = setInterval(function() {
   // console.log("starting");
     timeLeft--;
     document.querySelector("#quiz-max-time").textContent = timeLeft + " seconds";
@@ -162,6 +181,7 @@ var startQuiz = function () {
     var falseButton = document.getElementById("answerfalse-btn");
     var nextQuestionButton = document.getElementById("next-q-btn");
     var saveButton = document.getElementById("save-btn");
+    const replayButton = document.getElementById("replay-btn");
 
     
     // trueButton.addEventListener("click", displayAnswerTrue); 
@@ -170,6 +190,7 @@ var startQuiz = function () {
     falseButton.addEventListener("click", displayAnswerFalse);
     nextQuestionButton.addEventListener("click", nextQuestion);
     saveButton.addEventListener("click", saveScore);
+    replayButton.addEventListener("click", playAgain);
 
     displayQuestions();
     console.log("click");

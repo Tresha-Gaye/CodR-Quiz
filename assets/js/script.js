@@ -13,6 +13,12 @@ WHEN THE GAME IS OVER
 * THEN I CAN SAVE MY INITIALS AND SCORE (LOCAL STORAGE- SET ITEM, GET ITEM)*/
 
 
+// missing elements:
+// timer- keeps counting after the quiz ends- sends an alert when time=0 even if quiz ends before
+// play again/start button at end of quiz
+// previous saved scores dont show
+// 
+
 var index = 0;
 var timeLeft = 60;
 var gameOver = 0;
@@ -42,21 +48,26 @@ var nextQuestion = function() {
 }
 
 var saveScore = function() {
-  // var displayScore = localStorage.getItem("highScore");
-  // var totalScore = 0;
-  // console.log(displayScore);
-  // if(displayScore != NaN) {
-  // totalScore = Number(displayScore) + timeLeft;
-  // console.log("if", totalScore);
-  // } else {
-  //   totalScore = timeLeft;
-  //   console.log("else", totalScore);
-  // }
-  //   console.log("totalScore= ", totalScore);
+
+  // const allScores = [];
+  const playerScore = 
+  {
+    user: "",
+    score: ""
+  };
   
-    var userName = document.getElementById("username").value;
-    localStorage.setItem(userName, JSON.stringify(timeLeft));
-    displayScore = localStorage.getItem(userName);
+    var userNameEl = document.getElementById("username").value;
+    playerScore.user = userNameEl;
+    playerScore.score = timeLeft;
+
+
+    const displayScore = JSON.parse(localStorage.getItem("leaderBoard"));
+    displayScore.push(playerScore);
+    // console.log(displayScore);
+    localStorage.setItem("leaderBoard", JSON.stringify(displayScore));
+
+
+   
     // for(var i = 0; i < displayScore.length; i++) {
     // gameOver = 1;
     // if (timeLeft > 0) {
@@ -143,7 +154,7 @@ var startQuiz = function () {
       }
     }, 1000);
   
-    // this transition from welcome screen to each question
+    // this transitions from welcome screen to each question
     var welcomeField = document.getElementById("welcome-id").style.display = "none";
     var btnField = document.getElementById("start-btn").style.display = "none";
     var nextField = document.getElementById("answer-btns").style.display = "block";
